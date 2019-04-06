@@ -1,0 +1,139 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<style>
+header {
+
+	height: 2em;
+	font-size: 2em;
+	text-align: center;
+	color: #b3b3b3;
+	background: linear-gradient(to right bottom, #00bc42, #00004d	);
+	padding-top: .5em;
+	padding-left: .5em;
+	margin-bottom: .5em;
+	margin-left: 1em;
+	margin-right: 1em;
+	border-radius: 25px;
+}
+
+body {
+		color: white;
+		background-color: #95a89c;
+}
+
+header{
+margin-top: 1em;
+}
+
+div.container {
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2em;
+	border-width: 2px;
+	border-style: solid;
+	border-color: white;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+table  {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+#left {
+	width: 30%;
+	float: left;
+}
+
+#center {
+	width: 20%;
+	margin-left: auto;
+	margin-right: auto;
+}
+		
+nav {
+	background: linear-gradient(to right bottom, #00bc42, #00004d	);
+	width: 11em;
+	height: auto;
+	font-size: 24px;
+	border-radius: 25px;
+	padding: 1em;
+	margin-left: 1em;
+		text-align: center;
+}
+
+nav ul {
+	list-style: none;
+}
+
+nav ul li {
+	margin-top: 1em;
+	padding-bottom: .5em;
+}
+
+nav ul li a {
+	color: #94aa9c;
+
+}
+
+
+nav ul li a:hover {
+	background: #6666ff;
+	border-radius: 18em;
+	color: white;
+}	
+
+a {
+	color: #0e9e42;
+}
+</style>
+<title>Update Venue</title>
+</head>
+<body>
+
+<header>Update Venue</header>
+<div class="container">
+<form action="#" th:action="@{/update/{id}(id=${venue.venueid})}" th:object="${venue}" method="post">
+
+	<input type="hidden" th:field="*{venueid}" id="venueid">
+    <label for="venuename">Venue Name</label>
+    <input type="text" th:field="*{venuename}" id="venuename" placeholder="Name">
+    <span th:if="${#fields.hasErrors('venuename')}" th:errors="*{venuename}"></span><br>
+    
+    <label for="venueaddy1">Street Address</label>
+    <input type="text" th:field="*{venueaddy1}" id="venueaddy1" placeholder="Street Address">
+    <span th:if="${#fields.hasErrors('venueaddy1')}" th:errors="*{venueaddy1}"></span><br>
+    
+    <label for="venuecity">City</label>
+    <input type="text" th:field="*{venuecity}" id="venuecity" placeholder="City">
+    <span th:if="${#fields.hasErrors('venuecity')}" th:errors="*{venuecity}"></span><br>
+    
+    <label for="venuestate">State</label>
+    <input type="text" th:field="*{venuestate}" id="venuestate" placeholder="State">
+    <span th:if="${#fields.hasErrors('venuestate')}" th:errors="*{venuestate}"></span><br>
+    
+ 	<label for="membersince">Member Since </label>
+    <input type="text" th:field="*{membersince}"  id="membersince" placeholder="yyyy/mm/dd" />
+     <span th:if="${#fields.hasErrors('membersince')}" th:errors="*{membersince}"></span><br>
+    
+    <label for="bookingagent">Booking Agent</label>
+    <input type="text" th:field="*{bookingagent}" id="bookingagent" placeholder="Booking Agent">
+    <span th:if="${#fields.hasErrors('bookingagent')}" th:errors="*{bookingagent}"></span><br>
+    
+    <label for="bookingphone">Booking Phone</label>
+    <input type="text" th:field="*{bookingphone}" id="bookingphone" placeholder="Booking Phone">
+    <span th:if="${#fields.hasErrors('bookingphone')}" th:errors="*{bookingphone}"></span><br>
+    
+    <label for="bookingemail">Booking Email</label>
+    <input type="text" th:field="*{bookingemail}" id="bookingemail" placeholder="Booking Email">
+    <span th:if="${#fields.hasErrors('bookingemail')}" th:errors="*{bookingemail}"></span><br>
+    
+    <input type="submit" value="Update User"><br>
+    <a href="../">Home</a><br />
+</form>
+</div>
+</body>
+</html>

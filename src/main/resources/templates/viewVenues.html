@@ -1,0 +1,140 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<style>
+header {
+
+	height: 2em;
+	font-size: 2em;
+	text-align: center;
+	color: #b3b3b3;
+	background: linear-gradient(to right bottom, #00bc42, #00004d	);
+	padding-top: .5em;
+	padding-left: .5em;
+	margin-bottom: .5em;
+	margin-left: 1em;
+	margin-right: 1em;
+	border-radius: 25px;
+}
+
+body {
+		color: white;
+		background-color: #95a89c;
+}
+
+th {
+	color: #0e9e42;
+}
+
+header{
+margin-top: 1em;
+}
+
+div.container {
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2em;
+	border-width: 2px;
+	border-style: solid;
+	border-color: white;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+table  {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+#left {
+	width: 30%;
+	float: left;
+}
+
+#center {
+	width: 20%;
+	margin-left: auto;
+	margin-right: auto;
+}
+		
+nav {
+	background: linear-gradient(to right bottom, #00bc42, #00004d	);
+	width: 11em;
+	height: auto;
+	font-size: 24px;
+	border-radius: 25px;
+	padding: 1em;
+	margin-left: 1em;
+		text-align: center;
+}
+
+nav ul li a {
+	color: #94aa9c;
+
+}
+
+nav ul {
+	list-style: none;
+}
+
+nav ul li {
+	margin-top: 1em;
+	padding-bottom: .5em;
+}
+
+nav ul li a:hover {
+	background: #6666ff;
+	border-radius: 18em;
+	color: white;
+}	
+
+a {
+	margin-right: 1em;
+	color: #0e9e42;
+}
+</style>
+<title>View All Venues</title>
+</head>
+<body>
+
+<header>Add Your Venue</header>
+
+<div class="container">
+<table>
+<thead>
+    <tr>
+        <th>ID:</th>
+        <th>Venue Name:</th>
+        <th>Street Address:</th>
+        <th>City:</th>
+        <th>State:</th>
+        <th>Member Since:</th>
+        <th>Booking Agent:</th>
+        <th>Phone:</th>
+        <th>Email:</th>
+    </tr>
+</thead>
+<tr th:each="currentVenue : ${venues}" >
+<td th:text="${currentVenue.venueid}" />
+ <td th:text="${currentVenue.venuename}" />
+ <td th:text="${currentVenue.venueaddy1}" />
+ <td th:text="${currentVenue.venuecity}" />
+ <td th:text="${currentVenue.venuestate}" />
+ <td th:text="${#temporals.format(currentVenue.membersince, 'yyyy-MM-dd')}"/><!--  -->
+ <td th:text="${currentVenue.bookingagent}" />
+ <td th:text="${currentVenue.bookingphone}" />
+ <td th:text="${currentVenue.bookingemail}" />
+ 
+ <td><a
+th:href="@{/edit/{id}(id=${currentVenue.venueid})}">Edit</a></td>
+ <td><a
+th:href="@{/delete/{id}(id=${currentVenue.venueid})}">Delete</a></td>
+</tr>
+</table>
+<a href="../addVenue">Add venue</a>
+<a href="../">Home</a><br />
+</div>
+
+</body>
+</html>

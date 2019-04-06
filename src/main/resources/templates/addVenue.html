@@ -1,0 +1,120 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<style>
+header {
+
+	height: 2em;
+	font-size: 2em;
+	text-align: center;
+	color: #b3b3b3;
+	background: linear-gradient(to right bottom, #00bc42, #00004d	);
+	padding-top: .5em;
+	padding-left: .5em;
+	margin-bottom: .5em;
+	margin-left: 1em;
+	margin-right: 1em;
+	border-radius: 25px;
+}
+
+body {
+		color: white;
+		background-color: #95a89c;
+}
+
+header{
+margin-top: 1em;
+}
+
+div.container {
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2em;
+	border-width: 2px;
+	border-style: solid;
+	border-color: white;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+table  {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+#left {
+	width: 30%;
+	float: left;
+}
+
+#center {
+	width: 20%;
+	margin-left: auto;
+	margin-right: auto;
+}
+		
+nav {
+	background: linear-gradient(to right bottom, #00bc42, #00004d	);
+	width: 11em;
+	height: auto;
+	font-size: 24px;
+	border-radius: 25px;
+	padding: 1em;
+	margin-left: 1em;
+		text-align: center;
+}
+
+nav ul {
+	list-style: none;
+}
+
+nav ul li {
+	margin-top: 1em;
+	padding-bottom: .5em;
+}
+
+nav ul li a {
+	color: #94aa9c;
+
+}
+
+
+nav ul li a:hover {
+	background: #6666ff;
+	border-radius: 18em;
+	color: white;
+}	
+
+a {
+	color: #0e9e42;
+}
+</style>
+<title>Add Venue</title>
+</head>
+<body>
+
+<header>Add Venue</header>
+
+
+<div class="container">
+ <form th:object="${newVenue}" th:action="@{/addVenue}" method='POST'>
+ 
+ Name: <input name="venuename" size="30"> <br />
+ Street Address: <input name="venueaddy1" size="30"><br />
+ City: <input name="venuecity" size="30"><br />
+ State: <input name="venuestate" size="30"><br />
+ Member since: <input type="text" name="membersince" size="30" placeholder="yyyy/MM/dd"><br />
+ Booking agent: <input name="bookingagent" size="30"><br />
+ Booking phone: <input name="bookingphone" size="30"><br />
+ Booking email: <input name="bookingemail" size="30"><br />
+        
+ <input name="submit" type="submit" value="submit" />
+         
+</form>
+<a href="viewAll">View all Contacts</a>
+</div>
+
+</body>
+</html>
