@@ -114,10 +114,8 @@ a {
     <label for="venuestate">State</label>
     <input type="text" th:field="*{venuestate}" id="venuestate" placeholder="State">
     <span th:if="${#fields.hasErrors('venuestate')}" th:errors="*{venuestate}"></span><br>
-    
- 	<label for="membersince">Member Since </label>
-    <input type="text" th:field="*{membersince}"  id="membersince" placeholder="yyyy/mm/dd" />
-     <span th:if="${#fields.hasErrors('membersince')}" th:errors="*{membersince}"></span><br>
+
+    <input type="text" th:field="*{membersince}" id="membersince">
     
     <label for="bookingagent">Booking Agent</label>
     <input type="text" th:field="*{bookingagent}" id="bookingagent" placeholder="Booking Agent">

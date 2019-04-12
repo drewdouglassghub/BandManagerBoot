@@ -84,9 +84,10 @@ public class Venue {
 		this.venuestate = venuestate;
 	}
 
-	public LocalDate getMembersince() {	
-		
-		return membersince;
+	public String getMembersince() {	
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+	    String formattedDateTime = membersince.format(formatter); // "1986-04-08 12:30"
+		   return formattedDateTime;
 	}
 
 	public void setMembersince(String dateString) {	

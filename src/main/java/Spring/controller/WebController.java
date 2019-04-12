@@ -1,5 +1,6 @@
 package Spring.controller;
 
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,8 @@ public class WebController {
 	public String showUpdateForm(@PathVariable("venueid") long venueid, Model model) {
 	    Venue v = repo.findById(venueid)
 	      .orElseThrow(() -> new IllegalArgumentException("Invalid user Id:" + venueid));
+	    repo.save(v);	    
+	    model.addAttribute("membersince", v.getMembersince());
 	    model.addAttribute("venue", v);
 	    return "updateVenue";
 	}
@@ -59,7 +62,7 @@ public class WebController {
 	    }
 	        
 	    repo.save(v);
-	    model.addAttribute("membersince", v.getMembersince().toString());
+	    model.addAttribute("membersince", v.getMembersince());
 	    model.addAttribute("venues", repo.findAll());
 		return "viewVenues";
 	}
