@@ -126,10 +126,8 @@ a {
  <td th:text="${currentVenue.bookingphone}" />
  <td th:text="${currentVenue.bookingemail}" />
  
- <td><a
-th:href="@{/edit/{id}(id=${currentVenue.venueid})}">Edit</a></td>
- <td><a
-th:href="@{/delete/{id}(id=${currentVenue.venueid})}">Delete</a></td>
+ <td><a th:href="@{/edit/{id}(id=${currentVenue.venueid})}">Edit</a></td>
+ <td><a th:href="@{/delete/{id}(id=${currentVenue.venueid})}">Delete</a></td>
 </tr>
 </table>
 <a href="../addVenue">Add venue</a>
